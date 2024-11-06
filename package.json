@@ -1,0 +1,16 @@
+{
+  "name": "kramer",
+  "version": "1.0.0",
+  "description": "Ecommerce con inteligencia artificial",
+  "scripts": {
+    "install:client": "npm install --include=dev --prefix client",
+    "install:api": "npm install --include=dev --prefix api",
+    "install:app": "npm run install:client & npm run install:api",
+    "watch:client": "npm run dev --prefix client",
+    "watch:api": "npm run dev --prefix api",
+    "watch:app": "npm run watch:client & npm run watch:api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
