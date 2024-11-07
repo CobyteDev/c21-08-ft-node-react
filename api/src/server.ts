@@ -1,4 +1,5 @@
 const cors = require("cors");
+import morgan from "morgan";
 import express from "express";
 import app from "./app";
 import { AppDataSource } from "./data-source";
@@ -27,6 +28,7 @@ AppDataSource.initialize()
   .then(() => {
     console.log("Database connected successfully");
 
+    app.use(morgan("combined"));
     app.use(express.json());
     app.use(cors());
     app.use("/user", userRoutes);
