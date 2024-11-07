@@ -1,4 +1,3 @@
-// src/controllers/auth.controller.ts
 import { Request, Response } from "express";
 import { UserService } from "../services/user.service";
 import jwt from "jsonwebtoken";
@@ -35,6 +34,10 @@ export class AuthController {
   async register(req: Request, res: Response): Promise<any> {
     try {
       const { name, email, password } = req.body;
+
+      if (!name || !email || !password) {
+        throw new UserException("Todos los campos son requeridos.", 400);
+      }
       await this.userService.register(name, email, password);
       return res
         .status(201)

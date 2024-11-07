@@ -39,6 +39,21 @@ export class UserService {
       if (existingUser) {
         throw new UserException("El usuario ya existe.", 401);
       }
+      if (password.length < 8) {
+        throw new UserException(
+          "La contraseña debe tener al menos 8 caracteres.",
+          400
+        );
+      }
+
+      const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        throw new UserException(
+          "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial.",
+          400
+        );
+      }
 
       const hashedPassword = await bcrypt.hash(password, 10);
 
