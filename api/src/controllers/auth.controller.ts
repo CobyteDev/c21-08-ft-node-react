@@ -9,6 +9,13 @@ export class AuthController {
   async login(req: Request, res: Response): Promise<any> {
     try {
       const { email, password } = req.body;
+
+      if (!email || !password) {
+        throw new UserException(
+          "Debes proporcionar el email y la contraseña.",
+          400
+        );
+      }
       const user = await this.userService.login(email, password);
 
       const jwtSecretKey: string = process.env.JWT_SECRET_KEY as string;

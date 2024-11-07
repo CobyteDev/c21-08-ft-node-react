@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { User } from "../entities/User.entity";
 import { UserException } from "../exceptions/UserException";
 import { userRepository } from "../repositories/user.repository";
+import validator from "validator";
 
 export class UserService {
   async getAllUsers(): Promise<User[]> {
@@ -72,6 +73,19 @@ export class UserService {
   async login(email: string, password: string) {
     try {
       const user = await userRepository.findOne({ where: { email } });
+
+      if (!validator.isEmail(email)) {
+        throw new UserException("El email proporcionado no es válido.", 400);
+      }
+
+      const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        throw new UserException(
+          "La contraseña debe tener al menos 8 caracteres y contener al menos una letra mayúscula, una minúscula, un número y un carácter especial.",
+          400
+        );
+      }
 
       if (!user) {
         throw new UserException("Credenciales incorrectas.", 401);
