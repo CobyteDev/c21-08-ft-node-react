@@ -1,5 +1,7 @@
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3170"
+export const API_BASE_URL_FROM_BROWSER =
+  process.env.NEXT_PUBLIC_API_BASE_URL_FROM_BROWSER || "http://localhost:3170"
 export const APP_BASE_URL =
   process.env.NEXT_PUBLIC_APP_BASE_URL || "http://localhost:3000"
 export const PROMOTION_ENDPOINT = `${API_BASE_URL}/promotion`

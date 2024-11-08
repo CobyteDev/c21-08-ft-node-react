@@ -1,4 +1,5 @@
 import { useState, useEffect, Dispatch, SetStateAction } from "react"
+import { API_BASE_URL_FROM_BROWSER } from "../consts/api.consts"
 
 const useFetch = <T>(
   endpoint: string,
@@ -9,7 +10,7 @@ const useFetch = <T>(
   useEffect(() => {
     async function getData() {
       try {
-        const res = await fetch(endpoint, {
+        const res = await fetch(`${API_BASE_URL_FROM_BROWSER}${endpoint}`, {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -19,7 +20,7 @@ const useFetch = <T>(
 
         setData(data)
       } catch (e) {
-        console.log(e)
+        console.log(`there was an error trying to fetch: ${endpoint}`, e)
       }
     }
     getData()

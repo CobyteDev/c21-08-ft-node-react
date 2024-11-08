@@ -16,7 +16,8 @@ const CategoriesPanel = ({
   mobile,
 }: CategoriesPanelProps) => {
   const categories =
-    useFetch<CategoryT[]>(`${API_BASE_URL}/category`) || ([] as CategoryT[])
+    useFetch<CategoryT[]>("/category") || ([] as CategoryT[])
+  // console.log('categories from client: ', categories);
 
   return (
     <>

@@ -27,7 +27,7 @@ const MobileNavbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   const pathname = usePathname()
   const categories =
-    useFetch<CategoryT[]>(`${API_BASE_URL}/category`) || ([] as CategoryT[])
+    useFetch<CategoryT[]>("/category") || ([] as CategoryT[])
   const [displayKramy, setDisplayKramy] = useState(false)
 
   useEffect(() => {

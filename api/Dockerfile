@@ -15,6 +15,7 @@ COPY . .
 
 # Exponer el puerto de la API
 EXPOSE 3000
+EXPOSE 3170
 
 # Comando para iniciar la aplicación
 CMD ["npm", "run", "dev"]

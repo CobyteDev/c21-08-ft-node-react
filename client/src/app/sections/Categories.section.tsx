@@ -16,6 +16,7 @@ const getCategories = async () => {
 
 const Categories = async () => {
   const categories = await getCategories()
+  console.log('categories from server: ', categories);
   return (
     <section className="relative z-40 -mt-36 w-full lg:-mt-48 md:-mt-16 xs:-mt-8">
       <div className="mx-auto flex max-w-[1000px] flex-col gap-10 lg:px-10 md:gap-5 md:px-5 sm:px-0">

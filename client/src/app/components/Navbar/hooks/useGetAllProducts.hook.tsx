@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction, useEffect } from "react"
 import { Product } from "@/app/types/Product.type"
-import { API_BASE_URL } from "@/app/consts/api.consts"
+import { API_BASE_URL_FROM_BROWSER } from "@/app/consts/api.consts"
 
 const useGetAllProducts = (
   setProducts: Dispatch<SetStateAction<Product[]>>,
 ) => {
   useEffect(() => {
     const getAllProducts = async () => {
-      const res = await fetch(`${API_BASE_URL}/product`)
+      const res = await fetch(`${API_BASE_URL_FROM_BROWSER}/product`)
       const products: Product[] = await res.json()
 
       setProducts(products)
