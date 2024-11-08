@@ -7,7 +7,7 @@ config();
 export const AppDataSource = new DataSource({
   type: "mysql",
   host: process.env.MYSQLHOST || "mysql",
-  port: parseInt(process.env.DB_PORT || "3307"),
+  port: parseInt(process.env.DB_PORT || "3306"),
   username: process.env.MYSQLUSER || "root",
   password: process.env.MYSQLPASSWORD || "root",
   database: process.env.MYSQL_DATABASE || "kramer",
