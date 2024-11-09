@@ -1,27 +1,32 @@
+import { Category } from '../entities/Category.entity';
+import { Promotion } from '../entities/Promotion.entity';
+
 const checkField = (
-  valueField: unknown,
+  valueField: object,
   expectedValue: string
 ): string | null => {
-  const obj = { valueField };
-  if (typeof valueField !== expectedValue) {
+  const val = Object.values(valueField)[0];
+
+  if (typeof val !== expectedValue) {
     return `the field ${Object.keys(
-      obj
+      valueField
     )} has an incorrect type; the expected value is ${expectedValue}`;
   }
   return null;
 };
 
-const checkFieldEnum = <T extends Record<string, unknown>>(
-  valueField: unknown,
-  enumType: T
+const checkFieldEnum = (
+  valueField: object,
+  arrayDB: Category[] | Promotion[]
 ): string | null => {
-  const obj = { valueField };
-  if (!Object.values(enumType).includes(valueField)) {
+  const val = Object.values(valueField)[0];
+  const arrayTransformed = arrayDB.map(index => {
+    return Object.values(index)[0];
+  });
+  if (!arrayTransformed.includes(val)) {
     return `the field ${Object.keys(
-      obj
-    )} has an incorrect; please send a valid value ${Object.values(
-      enumType
-    ).join(', ')}`;
+      valueField
+    )} has an incorrect; please send a valid value ${arrayTransformed}`;
   }
   return null;
 };

@@ -19,6 +19,8 @@ export enum UnitOfMeasurement {
   u1 = 'kg',
   u2 = 'gr',
   u3 = 'lt',
+  u4 = 'ml',
+  u5 = 'unitary',
 }
 
 export type ImgUrl = {
