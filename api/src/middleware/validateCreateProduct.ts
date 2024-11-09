@@ -1,8 +1,9 @@
-import { Request, Response, NextFunction } from "express";
-import { Measurement } from "../common/measurement.enum";
-import { CategoryService } from "../services/category.service";
-import { promotionRepository } from "../repositories/promotion.repository";
-import { error } from "console";
+import { Request, Response, NextFunction } from 'express';
+import { Measurement } from '../common/measurement.enum';
+import { CategoryService } from '../services/category.service';
+import { promotionRepository } from '../repositories/promotion.repository';
+import { error } from 'console';
+import { ProductEntry } from '../types/product.types';
 
 export const validateCreateProduct = (
   req: Request,
@@ -20,21 +21,20 @@ export const validateCreateProduct = (
     categoryId,
     promotionId,
   } = req.body;
-  console.log("req.body", req.body);
 
   // Validación de 'name'
-  if (!name || typeof name !== "string" || name.trim() === "") {
+  if (!name || typeof name !== 'string' || name.trim() === '') {
     res.status(400).json({
-      message: "Product name is required and must be a non-empty string.",
+      message: 'Product name is required and must be a non-empty string.',
     });
     return;
   }
 
   // Validación de 'price'
-  if (price === undefined || typeof price !== "number" || price <= 0) {
+  if (price === undefined || typeof price !== 'number' || price <= 0) {
     res.status(400).json({
       message:
-        "Product price is required, must be a number, and must be greater than zero.",
+        'Product price is required, must be a number, and must be greater than zero.',
     });
     return;
   }
@@ -43,28 +43,28 @@ export const validateCreateProduct = (
   if (!unitOfMeasurement) {
     res
       .status(400)
-      .json({ message: "Unit of measurement is required and must be valid." });
+      .json({ message: 'Unit of measurement is required and must be valid.' });
     return;
   }
 
   // Validación de 'description'
   if (
     !description ||
-    typeof description !== "string" ||
-    description.trim() === ""
+    typeof description !== 'string' ||
+    description.trim() === ''
   ) {
     res.status(400).json({
       message:
-        "Product description is required and must be a non-empty string.",
+        'Product description is required and must be a non-empty string.',
     });
     return;
   }
 
   // Validación de 'stock'
-  if (stock === undefined || typeof stock !== "number" || stock < 0) {
+  if (stock === undefined || typeof stock !== 'number' || stock < 0) {
     res.status(400).json({
       message:
-        "Stock quantity is required, must be a number, and must be zero or greater.",
+        'Stock quantity is required, must be a number, and must be zero or greater.',
     });
     return;
   }
@@ -73,15 +73,15 @@ export const validateCreateProduct = (
   if (!imgUrl) {
     res
       .status(400)
-      .json({ message: "Image URL is required and must be a string." });
+      .json({ message: 'Image URL is required and must be a string.' });
     return;
   }
 
   // Validación de 'brand'
-  if (!brand || typeof brand !== "string") {
+  if (!brand || typeof brand !== 'string') {
     res
       .status(400)
-      .json({ message: "Brand is required and must be a string." });
+      .json({ message: 'Brand is required and must be a string.' });
     return;
   }
 
@@ -104,10 +104,10 @@ export const validateCreateProduct = (
   // }
 
   // Validacion de de "categoryId"
-  if (!categoryId) throw new Error("Category ID is required.");
+  if (!categoryId) throw new Error('Category ID is required.');
 
   // Validación de 'promotionId'
-  if (!promotionId) throw new Error("Promotion ID is required.");
+  if (!promotionId) throw new Error('Promotion ID is required.');
 
   next();
 };

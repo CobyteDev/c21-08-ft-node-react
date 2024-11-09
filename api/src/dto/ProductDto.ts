@@ -1,5 +1,5 @@
-import { Measurement } from "../common/measurement.enum";
-import { ProductStatus } from "../common/statusProduct";
+import { Measurement } from '../common/measurement.enum';
+import { ProductStatus } from '../common/statusProduct';
 
 export class CreateProductDto {
   name!: string;
@@ -7,9 +7,9 @@ export class CreateProductDto {
   unitOfMeasurement!: Measurement;
   description!: string;
   stock!: number;
-  imgUrl!: {full: string, medium: string};
+  imgUrl!: { full: string; medium: string };
   brand?: string;
   categoryId!: string;
-  promotionId!: string;
+  promotionId?: string;
   status?: ProductStatus;
 }
