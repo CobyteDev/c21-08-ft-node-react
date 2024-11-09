@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { ProductController } from '../controllers/product.controller';
 import { validateCreateProduct } from '../middleware/checkProduct.middleware';
+import { validateUpdateProduct } from '../middleware/updateProduct.middleware';
 
 const router = Router();
 const productController = new ProductController();
@@ -18,7 +19,7 @@ router.get('/promotion', (req, res) =>
 router.post('/createProduct', validateCreateProduct, (req, res) =>
   productController.createProduct(req, res)
 );
-router.put('/editProduct/:productId', (req, res) =>
+router.put('/editProduct/:productId', validateUpdateProduct, (req, res) =>
   productController.updateProduct(req, res)
 );
 router.delete(
