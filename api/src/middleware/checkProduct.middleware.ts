@@ -42,15 +42,15 @@ export const validateCreateProduct = async (
     const error = validatorFields.checkField({ price }, 'number');
     if (error) errors.push(error);
   }
-  //   if (!unitOfMeasurement) {
-  //     missings.push('unit of measurement is missing');
-  //   } else {
-  //     const error = validatorFields.checkFieldEnum(
-  //       { unitOfMeasurement },
-  //       UnitOfMeasurement
-  //     );
-  //     if (error) errors.push(error);
-  //   }
+  if (!unitOfMeasurement) {
+    missings.push('unit of measurement is missing');
+  } else {
+    const error = validatorFields.checkFieldEnum(
+      { unitOfMeasurement },
+      UnitOfMeasurement
+    );
+    if (error) errors.push(error);
+  }
   if (!description) {
     missings.push('descripton is missing');
   } else {
@@ -78,11 +78,17 @@ export const validateCreateProduct = async (
   if (!categoryId) {
     missings.push('categoryId is missing');
   } else {
-    const error = validatorFields.checkFieldEnum({ categoryId }, categoryID);
+    const error = validatorFields.checkFieldServices(
+      { categoryId },
+      categoryID
+    );
     if (error) errors.push(error);
   }
   if (promotionId) {
-    const error = validatorFields.checkFieldEnum({ promotionId }, promotionID);
+    const error = validatorFields.checkFieldServices(
+      { promotionId },
+      promotionID
+    );
     if (error) errors.push(error);
   }
 

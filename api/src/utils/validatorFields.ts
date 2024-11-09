@@ -15,7 +15,23 @@ const checkField = (
   return null;
 };
 
-const checkFieldEnum = (
+const checkFieldEnum = <T extends object>(
+  valueField: object,
+  expectedValue: T
+): string | null => {
+  const val = Object.values(valueField)[0];
+
+  if (!Object.values(expectedValue).includes(val)) {
+    return `the field ${Object.keys(
+      valueField
+    )} has an incorrect type; the expected value is ${Object.values(
+      expectedValue
+    ).join(', ')}`;
+  }
+  return null;
+};
+
+const checkFieldServices = (
   valueField: object,
   arrayDB: Category[] | Promotion[]
 ): string | null => {
@@ -45,4 +61,4 @@ const checkImgUrl = (nameField: string, imgUrl: unknown): string | null => {
   }
   return null;
 };
-export default { checkField, checkFieldEnum, checkImgUrl };
+export default { checkField, checkFieldEnum, checkImgUrl, checkFieldServices };
