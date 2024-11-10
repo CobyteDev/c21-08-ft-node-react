@@ -5,7 +5,7 @@ import Register from "./components/Register.component"
 import Toggle from "./components/Toggle.component"
 import LoginInvite from "./components/LoginInvite.component"
 import RegisterInvite from "./components/RegisterInvite.component"
-import { useAuth } from "../contexts/auth.context"
+import { useAuth } from "../../contexts/auth.context"
 import { useRouter } from "next/navigation"
 
 const LoginComponent = () => {

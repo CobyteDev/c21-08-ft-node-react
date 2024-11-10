@@ -1,4 +1,4 @@
-import DiscountsContainer from "../components/DiscountsContainer/DiscountsContainer.component"
+import DiscountsContainer from "../../components/DiscountsContainer/DiscountsContainer.component"
 
 const Discounts = () => {
   return (

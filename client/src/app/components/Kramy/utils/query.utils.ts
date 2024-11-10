@@ -1,4 +1,4 @@
-import { KramyResponse } from "@/app/kramy/kramy.types"
+import { KramyResponse } from "@/app/(site)/kramy/kramy.types"
 import { API_BASE_URL_FROM_BROWSER } from "@/app/consts/api.consts"
 import { splitIngredients } from "@/app/utils/kramy.util"
 

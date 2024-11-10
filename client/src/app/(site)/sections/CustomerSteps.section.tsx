@@ -1,6 +1,6 @@
 // import Arrow from "../components/Arrow/Arrow.component"
-import CustomerStep from "../components/CustomerStep/CustomerStep.component"
-import Icon from "../components/Icon/Icon.component"
+import CustomerStep from "../../components/CustomerStep/CustomerStep.component"
+import Icon from "../../components/Icon/Icon.component"
 
 const CustomerSteps = () => {
   return (

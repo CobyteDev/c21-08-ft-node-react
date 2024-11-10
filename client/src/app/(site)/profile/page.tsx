@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect } from "react"
-import { useAuth } from "../contexts/auth.context"
+import { useAuth } from "../../contexts/auth.context"
 import { useRouter } from "next/navigation"
 
 const AdminPage = () => {

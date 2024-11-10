@@ -39,5 +39,7 @@ export type IconProps = {
     | "variados-md-color"
     | "limpieza-md-color"
     | "vinoteca-md-color"
+    | "goto"
+    | "logout"
   style?: string
 }

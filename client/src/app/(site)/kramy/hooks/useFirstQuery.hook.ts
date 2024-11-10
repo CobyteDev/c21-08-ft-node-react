@@ -1,7 +1,7 @@
 import { useEffect, Dispatch, SetStateAction } from "react"
 import { usePathname, useSearchParams, useRouter } from "next/navigation"
-import { KramyFinalResponse } from "@/app/kramy/kramy.types"
-import { getRecipe } from "../../components/Kramy/utils/query.utils"
+import { KramyFinalResponse } from "@/app/(site)/kramy/kramy.types"
+import { getRecipe } from "../../../components/Kramy/utils/query.utils"
 
 const useFirstQuery = (
   setKramyResponse: Dispatch<SetStateAction<KramyFinalResponse | undefined>>,

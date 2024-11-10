@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
-import { Product } from "../types/Product.type"
+import { Product } from "../../types/Product.type"
 
 export type Pos = "float" | "static"
 export type ResponseKeys = "allIngredients" | "owned" | "instructions"

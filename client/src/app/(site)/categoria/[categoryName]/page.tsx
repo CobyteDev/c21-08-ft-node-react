@@ -3,7 +3,7 @@
 import { useState } from "react"
 import FilterPanel from "./components/FilterPanel.component"
 import ProductsPanel from "./components/ProductsPanel.component"
-import { Product } from "../../types/Product.type"
+import { Product } from "../../../types/Product.type"
 import { useParams, useSearchParams } from "next/navigation"
 import { strForDisplay } from "@/app/utils/strFormatting.util"
 import { FilterFields } from "./types/page.types"

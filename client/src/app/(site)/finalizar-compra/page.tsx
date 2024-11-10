@@ -1,10 +1,10 @@
 "use client"
-import Cart from "../components/Cart/Cart.component"
+import Cart from "../../components/Cart/Cart.component"
 import { CheckoutContextProvider } from "./contexts/checkout.context"
-import { useAuth } from "../contexts/auth.context"
+import { useAuth } from "../../contexts/auth.context"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect } from "react"
-import { CartContext } from "../contexts/cart.context"
+import { CartContext } from "../../contexts/cart.context"
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm.component"
 
 const Checkout = () => {

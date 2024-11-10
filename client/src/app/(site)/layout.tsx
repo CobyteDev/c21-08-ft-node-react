@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 // import localFont from "next/font/local";
 import { Suspense } from "react"
-import "./globals.css"
-import Navbar from "./components/Navbar/Navbar.component"
-import { CartContextProvider } from "./contexts/cart.context"
-import Footer from "./components/Footer/Footer.component"
-import { AuthProvider } from "./contexts/auth.context"
-import MobileNavbar from "./components/MobileNavbar/MobileNavbar.component"
+import "../globals.css"
+import Navbar from "../components/Navbar/Navbar.component"
+import { CartContextProvider } from "../contexts/cart.context"
+import Footer from "../components/Footer/Footer.component"
+import { AuthProvider } from "../contexts/auth.context"
+import MobileNavbar from "../components/MobileNavbar/MobileNavbar.component"
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",

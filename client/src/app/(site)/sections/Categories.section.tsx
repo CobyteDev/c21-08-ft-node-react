@@ -1,10 +1,10 @@
-import CategoryCard from "../components/CategoryCard/CategoryCard.component"
-import { IconProps } from "../components/Icon/types/IconProps.type"
+import CategoryCard from "../../components/CategoryCard/CategoryCard.component"
+import { IconProps } from "../../components/Icon/types/IconProps.type"
 import { Category } from "@/app/types/Category.type"
 import { API_BASE_URL } from "@/app/consts/api.consts"
-import Icon from "../components/Icon/Icon.component"
-import { IsClientProvider } from "../contexts/isClient.context"
-import CarouselContainer from "../components/CarouselContainer/CarouselContainer.component"
+import Icon from "../../components/Icon/Icon.component"
+import { IsClientProvider } from "../../contexts/isClient.context"
+import CarouselContainer from "../../components/CarouselContainer/CarouselContainer.component"
 
 const getCategories = async () => {
   const res = await fetch(`${API_BASE_URL}/category`, {

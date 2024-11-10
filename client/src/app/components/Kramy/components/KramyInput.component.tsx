@@ -1,4 +1,4 @@
-import { KramyFinalResponse } from "@/app/kramy/kramy.types"
+import { KramyFinalResponse } from "@/app/(site)/kramy/kramy.types"
 import { ChangeEvent, Dispatch, SetStateAction } from "react"
 import { useRouter, usePathname } from "next/navigation"
 

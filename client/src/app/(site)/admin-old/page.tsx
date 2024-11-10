@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect } from "react"
 import AdminLayout from "./components/AdminLayout"
-import { useAuth } from "../contexts/auth.context"
+import { useAuth } from "../../contexts/auth.context"
 import { useRouter } from "next/navigation"
 
 const AdminDashboard = () => {

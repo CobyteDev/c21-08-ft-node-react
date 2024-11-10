@@ -3,7 +3,7 @@ import { createContext, useState } from "react"
 import {
   CheckoutProviderType,
   CheckoutContextType,
-} from "../finalizar-compra/types/checkoutContext.types"
+} from "../(site)/finalizar-compra/types/checkoutContext.types"
 
 export const CheckoutContext = createContext<CheckoutContextType>(
   {} as CheckoutContextType,
