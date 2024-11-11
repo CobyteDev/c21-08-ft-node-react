@@ -9,7 +9,10 @@ export class Category {
   @Column()
   categoryName!: string;
 
-  @Column()
+  @Column({ unique: true })
+  order!: number;
+
+  @Column({ default: "" }) // le asigné un valor predeterminado.
   categoryLabel!: string;
 
   @Column({ type: "boolean", default: false })

@@ -131,10 +131,7 @@ export class ProductService {
     }
   }
 
-  async statusProduct(
-    productId: string,
-    status?: ProductStatus
-  ): Promise<Product> {
+  async statusProduct(productId: string, status?: ProductStatus): Promise<Product> {
     try {
       const product = await productRepository.findOne({ where: { productId } });
 
