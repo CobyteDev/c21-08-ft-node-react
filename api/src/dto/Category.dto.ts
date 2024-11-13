@@ -1,5 +1,5 @@
 export class CategoryDto {
-    categoryName!: string;
+    categoryLabel!: string;
     order!: number;
 }
   

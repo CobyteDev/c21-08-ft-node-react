@@ -36,7 +36,8 @@ export class CategoryService {
     try {
       // Crear la nueva categoría usando el DTO
       const newCategory = categoryRepository.create({
-        categoryName: categoryData.categoryName,
+        categoryName: categoryData.categoryLabel,
+        categoryLabel: categoryData.categoryLabel,
         order: categoryData.order,
       });
 
@@ -66,4 +67,22 @@ export class CategoryService {
     }
   }  
 
+  async updateCategory(categoryId: string, categoryData: CategoryDto): Promise<Category> {
+    try {
+      // Encontrar la categoría sin hacer comprobaciones
+      const category = await categoryRepository.findOneOrFail({
+        where: { categoryId },
+      });
+  
+      // Actualizar los campos de la categoría con los datos del DTO
+      category.categoryName = categoryData.categoryLabel;
+      category.categoryLabel = categoryData.categoryLabel;
+      category.order = categoryData.order;
+  
+      // Guardar la categoría actualizada en la base de datos
+      return await categoryRepository.save(category);
+    } catch (error) {
+      throw new CategoryException("Error updating category", 500);
+    }
+  }
 }

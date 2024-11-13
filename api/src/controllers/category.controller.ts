@@ -49,4 +49,19 @@ export class CategoryController {
       return res.status(500).json({ message: "Error deleting category" });
     }
   }
+
+  async updateCategory(req: Request, res: Response): Promise<any> {
+    try {
+      const { categoryId } = req.params; // Obtener el ID de la categoría de los parámetros de la ruta
+      const categoryData: CategoryDto = req.body; // Obtener los datos de actualización desde el cuerpo de la solicitud
+  
+      const updatedCategory = await this.categoryService.updateCategory(categoryId, categoryData);
+      return res.status(200).json(updatedCategory);
+    } catch (error) {
+      if (error instanceof CategoryException) {
+        return res.status(error.statusCode).json({ message: error.message });
+      }
+      return res.status(500).json({ message: "Error updating category" });
+    }
+  }
 }
