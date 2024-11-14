@@ -44,5 +44,6 @@ AppDataSource.initialize()
     });
   })
   .catch(error => {
+    console.log("Probando webHook");
     console.error('Error during Data Source initialization:', error);
   });
